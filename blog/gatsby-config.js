@@ -1,8 +1,6 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-config/
- */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -23,8 +21,8 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `bx2f1r2nyw4v`,
-        accessToken: `ipctp9XE7_2CqxKKlDDXTaAiumWgST27mDa8GRO-ZjU`
+        spaceId: `${process.env.SPACE_ID}`,
+        accessToken: `${process.env.ACCESS_TOKEN}`,
       }
     },
     `gatsby-plugin-image`,
@@ -35,6 +33,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
