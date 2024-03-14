@@ -20,10 +20,10 @@ query blogPostQuery($slug: String!){
     contentfulBlogPost(slug: {eq: $slug}){
         title 
         slug
-    body {
-      childMarkdownRemark{
-        html
-      }
+        body {
+        childMarkdownRemark{
+            html
+        }
     }
     }
 }
